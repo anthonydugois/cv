@@ -1,0 +1,200 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,total={6.5in,9.5in}]{geometry}
+\usepackage[english,main=french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[autostyle]{csquotes}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{eqparbox}
+\usepackage{etoolbox}
+\usepackage[backend=biber,sorting=none,style=ieee]{biblatex}
+\usepackage{charter}
+\usepackage{hyperref} % must be last
+
+%%% Main content.
+\newcommand{\myname}{Anthony Dugois}
+\newcommand{\mymail}{anthony.dugois@ens-lyon.fr}
+\newcommand{\myphone}{06 37 21 84 22}
+\newcommand{\myaffiliation}{Doctorant en Informatique\\
+  Laboratoire de l'Informatique du Parallélisme\\
+  École Normale Supérieure de Lyon}
+
+%%% CV title.
+\newcommand{\mytitle}{%
+  \raggedright
+
+  {\normalfont\bfseries\huge\myname}
+  
+  \vspace{10pt}
+
+  \begin{minipage}[t]{0.65\textwidth}
+    \myaffiliation
+  \end{minipage}%
+  \begin{minipage}[t]{0.35\textwidth}
+    \flushright
+    \href{mailto:\mymail}{\mymail} \\
+    \myphone
+  \end{minipage}
+}
+
+%%% Section titles.
+\titleformat{\section}{\normalfont\bfseries\Large}{}{}{}{}
+\titlespacing{\section}{0pt}{28pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+\titleformat{\subsection}{\normalfont\bfseries\normalsize}{}{}{}{}
+\titlespacing{\subsection}{0pt}{18pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+%%% Custom description list.
+\newcommand{\cvitemsep}{6pt}
+\newcommand{\cvlabelsep}{16pt}
+
+\newcounter{cvitems}
+\AtBeginEnvironment{cvitems}{%
+  \stepcounter{cvitems}
+  \edef\itemid{\arabic{cvitems}}}
+\newcommand\cvitemformat[2][l]{\eqmakebox[listlabel@\itemid][#1]{#2}}
+\newlist{cvitems}{description}{1}
+\setlist[cvitems]{%
+    labelwidth=\eqboxwidth{listlabel@\itemid},
+    labelsep=\cvlabelsep,
+    leftmargin=!,
+    itemsep=\cvitemsep,
+    format=\normalfont\cvitemformat}
+
+\newcommand{\cvitem}[2]{\item[#1] #2}
+
+%%% No indent space.
+\setlength\parindent{0em}
+
+%%% Link styling.
+\hypersetup{colorlinks=true,urlcolor=magenta}
+
+%%% Bibliography.
+\addbibresource{main.bib}
+
+\begin{document}
+
+\mytitle
+
+\section*{Expérience professionnelle}
+
+\begin{cvitems}
+  \cvitem{2020--}{\textbf{Doctorant à l'ENS Lyon}, encadré par Loris Marchal et Louis-Claude Canon
+  au sein du LIP (Laboratoire de l'Informatique du Parallélisme).  
+  Ordonnancement pour les \emph{key-value stores}.}
+
+  \cvitem{2020}{\textbf{Stagiaire à FEMTO-ST} (Besançon), encadré par Louis-Claude Canon et Loris
+  Marchal.  
+  Synthèse bibliographique : ordonnancement de requêtes dans les bases de données répliquées (6
+  mois).}
+
+  \cvitem{2019}{\textbf{Stagiaire à l'Univ.\ Catholique de Louvain}
+  (Louvain-la-Neuve, Belgique), encadré par Etienne Rivière et Louis-Claude Canon.  
+  Simulation à évènements discrets d'un système de \emph{key-value store} (1 mois).}
+
+  \cvitem{2019}{\textbf{Stagiaire à l'ENS Lyon}, encadré par Loris Marchal et Louis-Claude Canon.  
+  Initiation à la recherche : ordonnancement de requêtes dans les bases de données répliquées (2
+  mois).}
+
+  % \cvitem{2018}{\textbf{Stagiaire chez Numerica} (Montbéliard).  
+  % Développement mobile et Internet des Objets (3 mois).}
+
+  % \cvitem{2017}{\textbf{Stagiaire chez Akufen} (Montréal, Canada).  
+  % Développement web (3 mois).}
+\end{cvitems}
+
+\section*{Formation}
+
+\begin{cvitems}
+  \cvitem{\bfseries Doctorat}{Thèse de Doctorat en Informatique menée à l'École Normale Supérieure
+  de Lyon, encadrée par Loris Marchal et Louis-Claude Canon depuis octobre 2020.}
+
+  \cvitem{\bfseries Master}{Master Informatique à l'Univ.\ de Franche-Comté (Besançon).  
+  Ingénierie système et logiciels.  
+  Mention très bien (major de promotion).  
+  2018--2020.}
+
+  \cvitem{\bfseries Licence}{Licence Informatique à l'Univ.\ de Franche-Comté (Besançon), précédée
+  d'un DUT à l'IUT de Belfort-Montbéliard.  
+  2015--2018.}
+
+  \cvitem{\bfseries CPGE}{Cycle préparatoire (mathématiques, biologie, physique, chimie).  
+  2013-2015.}
+\end{cvitems}
+
+\section*{Compétences}
+
+\begin{cvitems}
+  \cvitem{Académiques}{Systèmes distribués, algorithmique parallèle, théorie de
+  l'ordonnancement, réseaux, logique.}
+
+  \cvitem{Techniques}{C, Python, R, Java, SQL, MPI, XML, JavaScript, HTML/CSS.}
+
+  \cvitem{Linguistiques}{Anglais, Français.}
+\end{cvitems}
+
+\section*{Enseignement}
+
+Les TD (Travaux Dirigés) et TP (Travaux Pratiques) se font en parallèle des activités de recherche.  
+Pour chaque module, les effectifs des groupes se situent entre 10 et 15 étudiants.
+
+\begin{center}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{rXllll}
+    \toprule
+    Année & Module & Public & Niveau & Type & Durée (hTD) \tabularnewline
+    \midrule
+    2021--2022 & Circuits Logiques \& Réseaux & ENS Lyon & L3 & TD/TP & 32 \tabularnewline
+    & Algorithmes Parallèles et Prog.\ Distribués & ENS Lyon & M1 & TD/TP & 32 \tabularnewline
+    \midrule
+    2020--2021 & Architecture, Système et Réseaux & ENS Lyon & L3 & TD/TP & 32 \tabularnewline
+    & Projet Intégré & ENS Lyon & M1 & Projet & 32 \tabularnewline
+    \bottomrule
+  \end{tabularx}
+\end{center}
+
+\section*{Publications}
+
+Les auteurs sont listés par ordre alphabétique.
+
+\nocite{*}
+
+\newcommand{\showbib}[1]{%
+  \begin{otherlanguage}{english}
+    \printbibliography[heading=none,keyword={#1}]
+  \end{otherlanguage}}
+
+\subsection*{Conférences internationales}
+
+\showbib{international proceedings}
+
+\subsection*{Rapports de recherche}
+
+\showbib{research report}
+
+% \subsection*{Articles soumis (revue en cours)}
+
+% \showbib{under review}
+
+\section*{Présentations}
+
+\subsection*{Conférences internationales}
+
+\begin{itemize}
+  \item \foreignlanguage{english}{Taming Tail-Latency in Key-Value Stores: a Scheduling
+  Perspective}, 2 septembre 2021, EuroPar 2021, visio-conférence.
+\end{itemize}
+
+\subsection*{Séminaires}
+
+\begin{itemize}
+  \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+  Processing Sets}, 3 décembre 2021, Groupe de Travail SCALE, Lyon.
+\end{itemize}
+
+\end{document}
