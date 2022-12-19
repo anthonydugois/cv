@@ -1,0 +1,215 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,total={6.5in,9.5in}]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[autostyle]{csquotes}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{eqparbox}
+\usepackage{etoolbox}
+\usepackage[backend=biber,sorting=none,style=ieee]{biblatex}
+\usepackage{charter}
+\usepackage{hyperref} % must be last
+
+%%% Main content.
+\newcommand{\myname}{Anthony Dugois}
+\newcommand{\mymail}{anthony.dugois@ens-lyon.fr}
+\newcommand{\myphone}{+33 6 37 21 84 22}
+\newcommand{\myaffiliation}{PhD Candidate in Computer Science\\
+  Laboratoire de l'Informatique du Parallélisme\\
+  École Normale Supérieure de Lyon}
+
+%%% CV title.
+\newcommand{\mytitle}{%
+  \raggedright
+
+  {\normalfont\bfseries\huge\myname}
+  
+  \vspace{10pt}
+
+  \begin{minipage}[t]{0.65\textwidth}
+    \myaffiliation
+  \end{minipage}%
+  \begin{minipage}[t]{0.35\textwidth}
+    \flushright
+    \href{mailto:\mymail}{\mymail} \\
+    \myphone
+  \end{minipage}
+}
+
+%%% Section titles.
+\titleformat{\section}{\normalfont\bfseries\Large}{}{}{}{}
+\titlespacing{\section}{0pt}{28pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+\titleformat{\subsection}{\normalfont\bfseries\normalsize}{}{}{}{}
+\titlespacing{\subsection}{0pt}{18pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+%%% Custom description list.
+\newcommand{\cvitemsep}{6pt}
+\newcommand{\cvlabelsep}{16pt}
+
+\newcounter{cvitems}
+\AtBeginEnvironment{cvitems}{%
+  \stepcounter{cvitems}
+  \edef\itemid{\arabic{cvitems}}}
+\newcommand\cvitemformat[2][l]{\eqmakebox[listlabel@\itemid][#1]{#2}}
+\newlist{cvitems}{description}{1}
+\setlist[cvitems]{%
+    labelwidth=\eqboxwidth{listlabel@\itemid},
+    labelsep=\cvlabelsep,
+    leftmargin=!,
+    itemsep=\cvitemsep,
+    format=\normalfont\cvitemformat}
+
+\newcommand{\cvitem}[2]{\item[#1] #2}
+
+%%% No indent space.
+\setlength\parindent{0em}
+
+%%% Link styling.
+\hypersetup{colorlinks=true,urlcolor=magenta}
+
+%%% Bibliography.
+\addbibresource{main.bib}
+
+\begin{document}
+
+\mytitle
+
+\section*{Experience}
+
+\begin{cvitems}
+  \cvitem{2020--}{\textbf{PhD Candidate at ENS Lyon}, supervised by Loris Marchal and Louis-Claude
+  Canon in the LIP (Laboratoire de l'Informatique du Parallélisme).  
+  Scheduling in distributed key-value stores.}
+
+  \cvitem{2020}{\textbf{Intern at FEMTO-ST} (Besançon), supervised by Louis-Claude Canon and Loris
+  Marchal.  
+  Bibliographic synthesis: request scheduling in distributed databases (6 months).}
+
+  \cvitem{2019}{\textbf{Intern at Univ.\ Catholique de Louvain}
+  (Louvain-la-Neuve, Belgique), sueprvised by Etienne Rivière.  
+  Discrete-event simulation of key-value store systems (1 month).}
+
+  \cvitem{2019}{\textbf{Intern at ENS Lyon}, supervised by Loris Marchal and Louis-Claude Canon.  
+  Research initiation: request scheduling in replicated databases (2 months).}
+
+  % \cvitem{2018}{\textbf{Stagiaire chez Numerica} (Montbéliard).  
+  % Développement mobile et Internet des Objets (3 mois).}
+
+  % \cvitem{2017}{\textbf{Stagiaire chez Akufen} (Montréal, Canada).  
+  % Développement web (3 mois).}
+\end{cvitems}
+
+\section*{Education}
+
+\begin{cvitems}
+  \cvitem{\bfseries PhD}{PhD thesis in Computer Science at École Normale Supérieure de Lyon,
+  supervised by Loris Marchal and Louis-Claude Canon since october 2020.}
+
+  \cvitem{\bfseries Master}{Master (equivalent to a Master's degree) in Computer Science at Univ.\
+  de Franche-Comté (Besançon).  
+  System \& Software Engineering.  
+  2018--2020.}
+
+  \cvitem{\bfseries Licence}{Licence (equivalent to a Bachelor's degree) in Computer Science at
+  Univ.\ de Franche-Comté (Besançon).  
+  2015--2018.}
+\end{cvitems}
+
+\section*{Skills}
+
+\begin{cvitems}
+  \cvitem{Academic}{Distributed Systems, Parallel Algorithms, Scheduling Theory, Networks, Logic.}
+
+  \cvitem{Technical}{C, Python, R, Java, SQL, MPI, XML, JavaScript, HTML/CSS.}
+
+  \cvitem{Language}{English, French.}
+\end{cvitems}
+
+\section*{Teaching}
+
+Tutorials (TD) and Practical Work (TP) are made in parallel to research activities.  
+For each module, groupe sizes range from 10 to 15 students.  
+The target audience comes from École Normale Supérieure de Lyon (ENSL) and Université de
+Franche-Comté (UFC).
+
+\begin{center}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{rXllll}
+    \toprule
+    Year & Module & Audience & Level & Type & Duration (hTD) \tabularnewline
+    \midrule
+    2022--2023 & Basics of Computer Programming & UFC & L1 & TD/TP & 52 \tabularnewline
+    & Networks & UFC & M1 & TP & 12 \tabularnewline
+    \midrule
+    2021--2022 & Logic Circuits \& Networks & ENSL & L3 & TD/TP & 32 \tabularnewline
+    & Parallel Algorithms \& Distributed Programs & ENSL & M1 & TD/TP & 32 \tabularnewline
+    \midrule
+    2020--2021 & Architecture, System and Networks & ENSL & L3 & TD/TP & 32 \tabularnewline
+    & Programming Project & ENSL & M1 & Projet & 32 \tabularnewline
+    \bottomrule
+  \end{tabularx}
+\end{center}
+
+\section*{Research Publications}
+
+Authors are sorted in alphabetical order.
+
+\nocite{*}
+
+\newcommand{\showbib}[1]{%
+  \begin{otherlanguage}{english}
+    \printbibliography[heading=none,keyword={#1}]
+  \end{otherlanguage}}
+
+\subsection*{International Conference Proceedings}
+
+\showbib{international proceedings}
+
+\subsection*{Research Reports}
+
+\showbib{research report}
+
+% \subsection*{Articles soumis (revue en cours)}
+
+% \showbib{under review}
+
+\section*{Research Presentations}
+
+\subsection*{International Conferences}
+
+\begin{itemize}
+  \item Bounding the Flow Time in Online Scheduling under Structured Processing Sets, 2022, june 1,
+  IPDPS 2022, videoconference (en).
+  \item Taming Tail-Latency in Key-Value Stores: a Scheduling Perspective, 2021, september 2,
+  EuroPar 2021, videoconference (en).
+\end{itemize}
+
+\subsection*{Workshops}
+
+\begin{itemize}
+  \item Bounding the Flow Time in Online Scheduling under Structured Processing Sets, 2022, november
+  25, Groupe de Travail GOThA, Metz (fr).
+  \item Bounding the Flow Time in Online Scheduling under Structured Processing Sets, 2022, august
+  30, Journée des doctorants, Mésandans (fr).
+  \item Bounding the Flow Time in Online Scheduling under Structured Processing Sets, 2022, may 17,
+  Scheduling Workshop, Aussois (en).
+  \item A Scheduling Framework for Distributed Key-Value Stores and Application to Tail Latency
+  Minimization, 2022, april 13, Groupe de Travail SCALE, Besançon (fr).
+  \item Bounding the Flow Time in Online Scheduling under Structured Processing Sets, 2021, december
+  3, Groupe de Travail SCALE, Lyon (fr).
+\end{itemize}
+
+% \section*{Activités collectives}
+% 
+% \subsection*{Relectures}
+% 
+% EuroPar 2021
+
+\end{document}
