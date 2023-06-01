@@ -4,5 +4,8 @@ build: fr.pdf en.pdf
 	latexmk -pdf $<
 
 clean:
+	latexmk -c
+
+realclean:
 	latexmk -C
 
