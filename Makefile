@@ -1,11 +1,9 @@
-build: fr.pdf en.pdf
+LATEX = latexmk
+BUILD = build
 
-%.pdf: %.tex
-	latexmk -pdf $<
+%.pdf: %.tex main.bib
+	mkdir -p $(BUILD)
+	$(LATEX) -pdf -outdir=$(BUILD) $<
 
 clean:
-	latexmk -c
-
-realclean:
-	latexmk -C
-
+	rm -rf $(BUILD)

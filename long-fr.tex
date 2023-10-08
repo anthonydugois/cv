@@ -1,0 +1,316 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,total={6.5in,9.5in}]{geometry}
+\usepackage[english,main=french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[autostyle]{csquotes}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{eqparbox}
+\usepackage{etoolbox}
+\usepackage[backend=biber,sorting=none,style=ieee]{biblatex}
+\usepackage{charter}
+\usepackage{hyperref} % must be last
+
+%%% Main content.
+\newcommand{\myname}{Anthony \textsc{Dugois}}
+\newcommand{\mymail}{\href{mailto:anthony.dugois@univ-fcomte.fr}{anthony.dugois@univ-fcomte.fr}}
+\newcommand{\myphone}{06\,37\,21\,84\,22}
+\newcommand{\mywebsite}{\href{https://anthonydugois.github.io/}{https://anthonydugois.github.io/}}
+% \newcommand{\myaffiliation}{Doctorant en Informatique\\
+%   Laboratoire de l'Informatique du Parallélisme\\
+%   École Normale Supérieure de Lyon}
+
+%%% CV title.
+% \newcommand{\mytitle}{%
+%   \raggedright
+
+%   {\normalfont\bfseries\huge\myname}
+  
+%   \vspace{10pt}
+
+%   \begin{minipage}[t]{0.65\textwidth}
+%     \myaffiliation
+%   \end{minipage}%
+%   \begin{minipage}[t]{0.35\textwidth}
+%     \flushright
+%     \href{mailto:\mymail}{\mymail} \\
+%     \myphone
+%   \end{minipage}
+% }
+
+%%% Section titles.
+% \titleformat{\section}{\normalfont\bfseries\Large}{}{}{}{}
+% \titlespacing{\section}{0pt}{28pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% \titleformat{\subsection}{\normalfont\bfseries\normalsize}{}{}{}{}
+% \titlespacing{\subsection}{0pt}{18pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+%%% Custom description list.
+\newcommand{\cvitemsep}{6pt}
+\newcommand{\cvlabelsep}{16pt}
+\newcommand\cvitemformat[2][l]{\eqmakebox[listlabel@\itemid][#1]{#2}}
+\newcommand{\cvitem}[2]{\item[#1] #2}
+
+\newcounter{cvitems}
+\AtBeginEnvironment{cvitems}{%
+  \stepcounter{cvitems}
+  \edef\itemid{\arabic{cvitems}}}
+
+\newlist{cvitems}{description}{1}
+\setlist[cvitems]{%
+    labelwidth=\eqboxwidth{listlabel@\itemid},
+    labelsep=\cvlabelsep,
+    leftmargin=!,
+    itemsep=\cvitemsep,
+    format=\normalfont\cvitemformat}
+
+%%% Link styling.
+\hypersetup{colorlinks=true,urlcolor=magenta}
+
+%%% Bibliography.
+% \addbibresource{main.bib}
+
+\begin{document}
+
+\begin{center}
+	{\LARGE\bfseries\myname}
+
+	\vspace{10pt}
+
+	{Attaché Temporaire d'Enseignement et de Recherche} \\[1pt]
+	{Université de Franche-Comté}
+\end{center}
+
+\section{État civil}
+
+\noindent
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\linewidth}{@{}p{3cm}X@{}}
+	Nom         & \textsc{Dugois} \tabularnewline
+	Prénom      & Anthony \tabularnewline
+	Nationalité & Français \tabularnewline
+	Né le       & 20 janvier 1995 \tabularnewline
+	Adresse     & UFR Sciences et techniques \newline
+	              Bâtiment Métrologie, Bureau 416 C \newline
+				  16 route de Gray \newline
+				  25000 Besançon \tabularnewline
+	Téléphone   & \myphone \tabularnewline
+	Courriel    & \mymail \tabularnewline
+	Site web    & \mywebsite \tabularnewline
+\end{tabularx}
+
+\section{Parcours universitaire}
+
+\begin{cvitems}
+	\cvitem{2020--2023}{\textbf{Doctorat en Informatique} mené à l'École Normale Supérieure de Lyon et
+	encadré par Loris \textsc{Marchal} et Louis-Claude \textsc{Canon}.
+
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabularx}{\linewidth}{@{}lX@{}}
+		Titre         & Ordonnancement dans les systèmes de stockage distribués \tabularnewline
+		Spécialité    & Informatique \tabularnewline
+		Laboratoire   & Laboratoire de l'Informatique du Parallélisme (LIP) \tabularnewline
+		Établissement & École Normale Supérieure de Lyon \tabularnewline
+		Soutenance    & 28 septembre 2023 \tabularnewline
+		Directeur     & Loris \textsc{Marchal} (HDR), ENS Lyon, CNRS \tabularnewline
+		Co-encadrant  & Louis-Claude \textsc{Canon}, Université de Franche-Comté \tabularnewline
+		Rapporteurs   & Oliver \textsc{Sinnen}, University of Auckland (Nouvelle-Zélande) \newline
+		                Safia \textsc{Kedad-Sidhoum}, CNAM \tabularnewline
+		Examinateurs  & Denis \textsc{Trystram}, Grenoble INP \newline
+		                Sara \textsc{Bouchenak}, INSA Lyon \newline
+		                Emmanuel \textsc{Jeannot}, Inria \tabularnewline
+	\end{tabularx}}
+
+	\cvitem{2018--2020}{\textbf{Master Informatique} à l'Univ.\ de Franche-Comté (Besançon).  
+	Ingénierie système et logiciels.  
+	Mémoire de recherche : \emph{Ordonnancement pour les bases de données répliquées}.  
+	Encadré par Loris \textsc{Marchal} et Louis-Claude \textsc{Canon}.  
+	Mention très bien (major de promotion).}
+
+	\cvitem{2015--2018}{\textbf{Licence Informatique} à l'Univ.\ de Franche-Comté (Besançon), précédée
+	d'un DUT à l'IUT de Belfort-Montbéliard.}
+
+	\cvitem{2013-2015}{\textbf{Cycle préparatoire} (mathématiques, biologie, physique, chimie).}
+\end{cvitems}
+
+\section{Expériences professionnelles}
+
+\begin{cvitems}
+	\cvitem{2023--2024}{\textbf{ATER} à temps plein à l'Université de Franche-Comté dans l'équipe
+	DEODIS du Département Informatique et Systèmes Complexes au sein du laboratoire FEMTO-ST (CDD, 1
+	an).}
+
+	\cvitem{2020--2023}{\textbf{Doctorant} à l'École Normale Supérieure de Lyon, encadré par Loris
+	\textsc{Marchal} et Louis-Claude \textsc{Canon} au sein du LIP (bourse CORDI-S Inria, contrat
+	doctoral, 3 ans).}
+
+	\cvitem{2020}{\textbf{Stagiaire} au laboratoire FEMTO-ST (Besançon), encadré par Louis-Claude
+	\textsc{Canon} et Loris \textsc{Marchal} (6 mois).  
+	Synthèse bibliographique : ordonnancement de requêtes dans les bases de données répliquées.}
+
+	\cvitem{2019}{\textbf{Stagiaire} à UCLouvain (Louvain-la-Neuve, Belgique), encadré par Etienne
+	\textsc{Rivière} (1 mois).  
+	Simulation à évènements discrets d'un \emph{key-value store}.}
+
+	\cvitem{2019}{\textbf{Stagiaire} à l'École Normale Supérieure de Lyon, encadré par Loris
+	\textsc{Marchal} et Louis-Claude \textsc{Canon} (2 mois).  
+	Initiation à la recherche : ordonnancement de requêtes dans les bases de données répliquées.}
+\end{cvitems}
+
+\section{Activités d'enseignement}
+
+J'ai eu l'occasion d'enseigner lors de mes 3 ans de doctorat de 2020 à 2023, sous le statut de
+vacataire.  
+Les publics concernés étaient des étudiants de l'École Normale Supérieure de Lyon (ENSL) et des
+étudiants de l'Université de Franche-Comté (UFC).  
+Ces enseignements se sont principalement traduits par des Travaux Dirigés (TD) et des Travaux
+Pratiques (TP), à hauteur de 64 heqTD par an.  
+J'enseigne désormais à l'UFC dans le cadre d'un ATER à hauteur de 192 heqTD par an, pour tous les
+niveaux de la L1 au M2 inclus.
+
+Ma participation s'est traduite par l'élaboration de nouveaux sujets (projet, TP), l'amélioration de
+sujets existants, la correction d'examens et mon investissement dans le fonctionnement des
+enseignements (réunions pédagogiques, jurys, surveillance, etc.).
+
+\begin{center}
+	\footnotesize
+	\begin{tabularx}{\linewidth}{p{2cm}p{3.5cm}lXll}
+		\toprule
+		Année & Public & Niv. & Matière & Vol. & Nature \tabularnewline
+		\midrule
+		2023--2024 (ATER) & Master Ingénierie Système et Logiciels (UFC) & M2 & Test Fonctionnel & 15 & TD/TP \tabularnewline
+		& & M1 & Compilation et Interprétation & 12 & TP \tabularnewline
+		& & M1 & Réseaux & 12 & TP \tabularnewline
+		& & L3 & Web Avancé & 24 & TP \tabularnewline
+		& & L3 & Analyse Syntaxique & 24 & TP \tabularnewline
+		& & L2 & Langages du Web & 22 & TP \tabularnewline
+		& & L1 & Bases de la Programmation & 56 & TD/TP \tabularnewline
+		\midrule
+		2022--2023 (Vacataire) & Master Ingénierie Système et Logiciels (UFC) & M1 & Réseaux & 12 & TP \tabularnewline
+		& & L1 & Bases de la Programmation & 52 & TD/TP \tabularnewline
+		\midrule
+		2021--2022 (Vacataire) & Master Informatique Fondamentale (ENSL) & M1 & Algo.\ Parallèles et Programmes Distribués & 32 & TD/TP \tabularnewline
+		& & L3 & Circuits Logiques et Réseaux & 32 & TD/TP \tabularnewline
+		\midrule
+		2020--2021 (Vacataire) & Master Informatique Fondamentale (ENSL) & M1 & Projet & 30 & TP \tabularnewline
+		& & M1 & Stage & 4 & Jury \tabularnewline
+		& & L3 & Architecture, Système et Réseaux & 30 & TD/TP \tabularnewline
+		\bottomrule
+	\end{tabularx}
+\end{center}
+
+\section{Activités de recherche}
+
+\subsection{Résumé des travaux}
+
+\subsection{Publications scientifiques}
+
+\subsection{Séminaires scientifiques}
+
+\subsection{Diffusions logicielles}
+
+\section{Responsabilités collectives}
+
+% \section*{Compétences}
+
+% \begin{cvitems}
+%   \cvitem{Académiques}{Théorie de l'ordonnancement, algorithmes d'approximation, algorithmique et programmes parallèles, systèmes distribués, réseaux, logique.}
+
+%   \cvitem{Techniques}{C, C++, Python, R, Java, SQL, MPI.}
+
+%   \cvitem{Linguistiques}{Anglais, Français.}
+% \end{cvitems}
+
+% \section*{Enseignement}
+
+% Les Travaux Dirigés (TD) et Travaux Pratiques (TP) se font en parallèle des activités de recherche.  
+% Pour chaque module, les effectifs des groupes se situent entre 10 et 15 étudiants.  
+% Le public concerné est issu de l'École Normale Supérieure de Lyon (ENSL) et de l'Université de
+% Franche-Comté (UFC).
+
+% \begin{center}
+%   \footnotesize
+%   \begin{tabularx}{\textwidth}{rXllll}
+%     \toprule
+%     Année & Module & Public & Niveau & Type & Durée (hTD) \tabularnewline
+%     \midrule
+%     2022--2023 & Bases de la programmation & UFC & L1 & TD/TP & 52 \tabularnewline
+%     & Réseaux & UFC & M1 & TP & 12 \tabularnewline
+%     \midrule
+%     2021--2022 & Circuits Logiques \& Réseaux & ENSL & L3 & TD/TP & 32 \tabularnewline
+%     & Algorithmes Parallèles et Prog.\ Distribués & ENSL & M1 & TD/TP & 32 \tabularnewline
+%     \midrule
+%     2020--2021 & Architecture, Système et Réseaux & ENSL & L3 & TD/TP & 32 \tabularnewline
+%     & Projet Intégré & ENSL & M1 & Projet & 32 \tabularnewline
+%     \bottomrule
+%   \end{tabularx}
+% \end{center}
+
+% \section*{Publications}
+
+% Les auteurs sont listés par ordre alphabétique.
+
+% \nocite{*}
+
+% \newcommand{\showbib}[1]{%
+%   \begin{otherlanguage}{english}
+%     \printbibliography[heading=none,keyword={#1}]
+%   \end{otherlanguage}}
+
+% \subsection*{Conférences internationales}
+
+% \showbib{international proceedings}
+
+% \subsection*{Rapports de recherche}
+
+% \showbib{research report}
+
+% \subsection*{Articles soumis (revue en cours)}
+
+% \showbib{under review}
+
+% \section*{Présentations}
+
+% \subsection*{Conférences internationales}
+
+% \begin{itemize}
+%   \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+%   Processing Sets}, 1 juin 2022, IPDPS 2022, visio-conférence (en).
+%   \item \foreignlanguage{english}{Taming Tail-Latency in Key-Value Stores: a Scheduling
+%   Perspective}, 2 septembre 2021, EuroPar 2021, visio-conférence (en).
+% \end{itemize}
+
+% \subsection*{Conférences nationales}
+
+% \begin{itemize}
+%   \item \foreignlanguage{english}{Hector: A Framework to Design and Evaluate Scheduling Strategies
+%   in Persistent Key-Value Stores}, 5 juillet 2023, COMPAS 2023, Annecy (fr).
+% \end{itemize}
+
+% \subsection*{Séminaires}
+
+% \begin{itemize}
+%   \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+%   Processing Sets}, 25 novembre 2022, Groupe de Travail GOThA, Metz (fr).
+%   \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+%   Processing Sets}, 30 août 2022, Journée des doctorants, Mésandans (fr).
+%   \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+%   Processing Sets}, 17 mai 2022, Scheduling Workshop, Aussois (en).
+%   \item \foreignlanguage{english}{A Scheduling Framework for Distributed Key-Value Stores and
+%   its Application to Tail Latency Minimization}, 13 avril 2022, Groupe de Travail SCALE, Besançon (fr).
+%   \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+%   Processing Sets}, 3 décembre 2021, Groupe de Travail SCALE, Lyon (fr).
+% \end{itemize}
+
+% \section*{Activités collectives}
+% 
+% \subsection*{Relectures}
+% 
+% EuroPar 2021
+
+\end{document}

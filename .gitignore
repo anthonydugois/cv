@@ -1,6 +1,1 @@
-*.pdf
-*.gz
-*.run.xml
-*.bcf
-*-blx.bib
-*.bbl
+build
