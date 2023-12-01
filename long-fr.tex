@@ -53,13 +53,13 @@
 %%% Custom description list.
 \newcommand{\cvitemsep}{6pt}
 \newcommand{\cvlabelsep}{16pt}
-\newcommand\cvitemformat[2][l]{\eqmakebox[listlabel@\itemid][#1]{#2}}
+\newcommand{\cvitemformat}[2][l]{\eqmakebox[listlabel@\itemid][#1]{#2}}
 \newcommand{\cvitem}[2]{\item[#1] #2}
 
 \newcounter{cvitems}
 \AtBeginEnvironment{cvitems}{%
-  \stepcounter{cvitems}
-  \edef\itemid{\arabic{cvitems}}}
+    \stepcounter{cvitems}
+    \edef\itemid{\arabic{cvitems}}}
 
 \newlist{cvitems}{description}{1}
 \setlist[cvitems]{%
@@ -73,17 +73,19 @@
 \hypersetup{colorlinks=true,urlcolor=magenta}
 
 %%% Bibliography.
-% \addbibresource{main.bib}
+\addbibresource{main.bib}
+
+\nocite{*}
 
 \begin{document}
 
 \begin{center}
-	{\LARGE\bfseries\myname}
+    {\LARGE\bfseries\myname}
 
-	\vspace{10pt}
+    \vspace{10pt}
 
-	{Attaché Temporaire d'Enseignement et de Recherche} \\[1pt]
-	{Université de Franche-Comté}
+    {Attaché Temporaire d'Enseignement et de Recherche} \\[1pt]
+    {à l'Université de Franche-Comté}
 \end{center}
 
 \section{État civil}
@@ -91,126 +93,264 @@
 \noindent
 \renewcommand{\arraystretch}{1.4}
 \begin{tabularx}{\linewidth}{@{}p{3cm}X@{}}
-	Nom         & \textsc{Dugois} \tabularnewline
-	Prénom      & Anthony \tabularnewline
-	Nationalité & Français \tabularnewline
-	Né le       & 20 janvier 1995 \tabularnewline
-	Adresse     & UFR Sciences et techniques \newline
-	              Bâtiment Métrologie, Bureau 416 C \newline
-				  16 route de Gray \newline
-				  25000 Besançon \tabularnewline
-	Téléphone   & \myphone \tabularnewline
-	Courriel    & \mymail \tabularnewline
-	Site web    & \mywebsite \tabularnewline
+    Nom         & \textsc{Dugois} \tabularnewline
+    Prénom      & Anthony \tabularnewline
+    Nationalité & Français \tabularnewline
+    Né le       & 20 janvier 1995 \tabularnewline
+    Adresse     & UFR Sciences et techniques \newline
+                  Bâtiment Métrologie, Bureau 416 C \newline
+                  16 route de Gray \newline
+                  25000 Besançon \tabularnewline
+    Téléphone   & \myphone \tabularnewline
+    Courriel    & \mymail \tabularnewline
+    Site web    & \mywebsite \tabularnewline
 \end{tabularx}
 
 \section{Parcours universitaire}
 
 \begin{cvitems}
-	\cvitem{2020--2023}{\textbf{Doctorat en Informatique} mené à l'École Normale Supérieure de Lyon et
-	encadré par Loris \textsc{Marchal} et Louis-Claude \textsc{Canon}.
+    \cvitem{2020--2023}{\textbf{Doctorat en Informatique} mené à l'École Normale Supérieure de Lyon
+    et encadré par Loris \textsc{Marchal} et Louis-Claude \textsc{Canon}.
 
-	\renewcommand{\arraystretch}{1.4}
-	\begin{tabularx}{\linewidth}{@{}lX@{}}
-		Titre         & Ordonnancement dans les systèmes de stockage distribués \tabularnewline
-		Spécialité    & Informatique \tabularnewline
-		Laboratoire   & Laboratoire de l'Informatique du Parallélisme (LIP) \tabularnewline
-		Établissement & École Normale Supérieure de Lyon \tabularnewline
-		Soutenance    & 28 septembre 2023 \tabularnewline
-		Directeur     & Loris \textsc{Marchal} (HDR), ENS Lyon, CNRS \tabularnewline
-		Co-encadrant  & Louis-Claude \textsc{Canon}, Université de Franche-Comté \tabularnewline
-		Rapporteurs   & Oliver \textsc{Sinnen}, University of Auckland (Nouvelle-Zélande) \newline
-		                Safia \textsc{Kedad-Sidhoum}, CNAM \tabularnewline
-		Examinateurs  & Denis \textsc{Trystram}, Grenoble INP \newline
-		                Sara \textsc{Bouchenak}, INSA Lyon \newline
-		                Emmanuel \textsc{Jeannot}, Inria \tabularnewline
-	\end{tabularx}}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabularx}{\linewidth}{@{}lX@{}}
+        Titre         & Ordonnancement dans les systèmes de stockage distribués \tabularnewline
+        Spécialité    & Informatique \tabularnewline
+        Laboratoire   & Laboratoire de l'Informatique du Parallélisme (LIP) \tabularnewline
+        Établissement & École Normale Supérieure de Lyon \tabularnewline
+        Soutenance    & 28 septembre 2023 \tabularnewline
+        Directeur     & Loris \textsc{Marchal} (HDR), CNRS, ENS Lyon, France \tabularnewline
+        Co-encadrant  & Louis-Claude \textsc{Canon}, Univ.\ de Franche-Comté, France \tabularnewline
+        Rapporteurs   & Oliver \textsc{Sinnen}, Univ.\ of Auckland, Nouvelle-Zélande \newline
+                        Safia \textsc{Kedad-Sidhoum}, CNAM, France \tabularnewline
+        Examinateurs  & Denis \textsc{Trystram}, Grenoble INP, France \newline
+                        Sara \textsc{Bouchenak}, INSA Lyon, France \newline
+                        Emmanuel \textsc{Jeannot}, Inria, France \tabularnewline
+    \end{tabularx}}
 
-	\cvitem{2018--2020}{\textbf{Master Informatique} à l'Univ.\ de Franche-Comté (Besançon).  
-	Ingénierie système et logiciels.  
-	Mémoire de recherche : \emph{Ordonnancement pour les bases de données répliquées}.  
-	Encadré par Loris \textsc{Marchal} et Louis-Claude \textsc{Canon}.  
-	Mention très bien (major de promotion).}
+    \cvitem{2018--2020}{\textbf{Master Informatique} à l'Univ.\ de Franche-Comté (Besançon).  
+    Ingénierie système et logiciels.  
+    Mémoire de recherche : \emph{Ordonnancement pour les bases de données répliquées}.  
+    Encadré par Loris \textsc{Marchal} et Louis-Claude \textsc{Canon}.  
+    Mention très bien (major de promotion).}
 
-	\cvitem{2015--2018}{\textbf{Licence Informatique} à l'Univ.\ de Franche-Comté (Besançon), précédée
-	d'un DUT à l'IUT de Belfort-Montbéliard.}
+    \cvitem{2015--2018}{\textbf{Licence Informatique} à l'Univ.\ de Franche-Comté (Besançon),
+    précédée d'un DUT à l'IUT de Belfort-Montbéliard.}
 
-	\cvitem{2013-2015}{\textbf{Cycle préparatoire} (mathématiques, biologie, physique, chimie).}
+    \cvitem{2013-2015}{\textbf{Cycle préparatoire} (mathématiques, biologie, physique, chimie).}
 \end{cvitems}
 
-\section{Expériences professionnelles}
+\section{Expérience professionnelle}
 
 \begin{cvitems}
-	\cvitem{2023--2024}{\textbf{ATER} à temps plein à l'Université de Franche-Comté dans l'équipe
-	DEODIS du Département Informatique et Systèmes Complexes au sein du laboratoire FEMTO-ST (CDD, 1
-	an).}
+    \cvitem{2023--2024}{\textbf{ATER} à temps plein à l'Université de Franche-Comté dans l'équipe
+    DEODIS du Département d'Informatique des Systèmes Complexes au sein du laboratoire FEMTO-ST
+    (CDD, 1 an).}
 
-	\cvitem{2020--2023}{\textbf{Doctorant} à l'École Normale Supérieure de Lyon, encadré par Loris
-	\textsc{Marchal} et Louis-Claude \textsc{Canon} au sein du LIP (bourse CORDI-S Inria, contrat
-	doctoral, 3 ans).}
+    \cvitem{2020--2023}{\textbf{Doctorant} à l'École Normale Supérieure de Lyon, encadré par Loris
+    \textsc{Marchal} et Louis-Claude \textsc{Canon} au sein du LIP (bourse CORDI-S Inria, contrat
+    doctoral, 3 ans).}
 
-	\cvitem{2020}{\textbf{Stagiaire} au laboratoire FEMTO-ST (Besançon), encadré par Louis-Claude
-	\textsc{Canon} et Loris \textsc{Marchal} (6 mois).  
-	Synthèse bibliographique : ordonnancement de requêtes dans les bases de données répliquées.}
+    \cvitem{2020}{\textbf{Stagiaire} au laboratoire FEMTO-ST (Besançon), encadré par Louis-Claude
+    \textsc{Canon} et Loris \textsc{Marchal} (6 mois).  
+    Synthèse bibliographique : ordonnancement de requêtes dans les bases de données répliquées.}
 
-	\cvitem{2019}{\textbf{Stagiaire} à UCLouvain (Louvain-la-Neuve, Belgique), encadré par Etienne
-	\textsc{Rivière} (1 mois).  
-	Simulation à évènements discrets d'un \emph{key-value store}.}
+    \cvitem{2019}{\textbf{Stagiaire} à UCLouvain (Louvain-la-Neuve, Belgique), encadré par Etienne
+    \textsc{Rivière} (1 mois).  
+    Simulation à évènements discrets d'un \emph{key-value store}.}
 
-	\cvitem{2019}{\textbf{Stagiaire} à l'École Normale Supérieure de Lyon, encadré par Loris
-	\textsc{Marchal} et Louis-Claude \textsc{Canon} (2 mois).  
-	Initiation à la recherche : ordonnancement de requêtes dans les bases de données répliquées.}
+    \cvitem{2019}{\textbf{Stagiaire} à l'École Normale Supérieure de Lyon, encadré par Loris
+    \textsc{Marchal} et Louis-Claude \textsc{Canon} (2 mois).  
+    Initiation à la recherche : ordonnancement de requêtes dans les bases de données répliquées.}
 \end{cvitems}
 
 \section{Activités d'enseignement}
 
 J'ai eu l'occasion d'enseigner lors de mes 3 ans de doctorat de 2020 à 2023, sous le statut de
 vacataire.  
-Les publics concernés étaient des étudiants de l'École Normale Supérieure de Lyon (ENSL) et des
-étudiants de l'Université de Franche-Comté (UFC).  
-Ces enseignements se sont principalement traduits par des Travaux Dirigés (TD) et des Travaux
-Pratiques (TP), à hauteur de 64 heqTD par an.  
+Les publics concernés étaient des étudiants en \textbf{Master Informatique Fondamentale} (IF) de
+l'École Normale Supérieure de Lyon (ENSL) et des étudiants en \textbf{Master Ingénierie Système et
+Logiciels} (ISL) de l'Université de Franche-Comté (UFC).  
+Ces enseignements ont principalement pris la forme de Travaux Dirigés (TD) et de Travaux Pratiques
+(TP), à hauteur de 64 heqTD\footnote{heqTD = heure équivalent TD.} par an.  
 J'enseigne désormais à l'UFC dans le cadre d'un ATER à hauteur de 192 heqTD par an, pour tous les
 niveaux de la L1 au M2 inclus.
 
-Ma participation s'est traduite par l'élaboration de nouveaux sujets (projet, TP), l'amélioration de
-sujets existants, la correction d'examens et mon investissement dans le fonctionnement des
-enseignements (réunions pédagogiques, jurys, surveillance, etc.).
+En plus des heures effectives, ma participation s'est également traduite par l'élaboration de
+nouveaux sujets (projet, TP), l'amélioration de sujets existants, la correction d'examens et mon
+investissement dans le fonctionnement des enseignements (réunions pédagogiques, jurys, surveillance,
+etc.).  
+Quelques exemples de supports et ressources que j'ai pu mettre en place :
+\begin{itemize}
+    \item Corrections de TD :
+    \href{https://anthonydugois.github.io/resources/appd-td5-solution.pdf}{appd-td5-solution.pdf},
+    \href{https://anthonydugois.github.io/resources/appd-td6-solution.pdf}{appd-td6-solution.pdf}
+    \item Sujet de TP :
+    \href{https://anthonydugois.github.io/resources/tf-tp3.pdf}{tf-tp3.pdf}
+    \item Sujets de projet :
+    \href{https://anthonydugois.github.io/resources/proj-sujet1.pdf}{proj-sujet1.pdf},
+    \href{https://anthonydugois.github.io/resources/proj-sujet2.pdf}{proj-sujet2.pdf}
+\end{itemize}
+
+\subsection{Liste des enseignements}
+
+Le tableau ci-dessous liste les enseignements que j'ai pu assurer de 2020 à maintenant.  
+Les modules apparaissant en italique sont ceux que j'assurerai lors du second semestre de l'année
+universitaire 2023--2024.  
+Les volumes horaires sont donnés en heqTD.
 
 \begin{center}
-	\footnotesize
-	\begin{tabularx}{\linewidth}{p{2cm}p{3.5cm}lXll}
-		\toprule
-		Année & Public & Niv. & Matière & Vol. & Nature \tabularnewline
-		\midrule
-		2023--2024 (ATER) & Master Ingénierie Système et Logiciels (UFC) & M2 & Test Fonctionnel & 15 & TD/TP \tabularnewline
-		& & M1 & Compilation et Interprétation & 12 & TP \tabularnewline
-		& & M1 & Réseaux & 12 & TP \tabularnewline
-		& & L3 & Web Avancé & 24 & TP \tabularnewline
-		& & L3 & Analyse Syntaxique & 24 & TP \tabularnewline
-		& & L2 & Langages du Web & 22 & TP \tabularnewline
-		& & L1 & Bases de la Programmation & 56 & TD/TP \tabularnewline
-		\midrule
-		2022--2023 (Vacataire) & Master Ingénierie Système et Logiciels (UFC) & M1 & Réseaux & 12 & TP \tabularnewline
-		& & L1 & Bases de la Programmation & 52 & TD/TP \tabularnewline
-		\midrule
-		2021--2022 (Vacataire) & Master Informatique Fondamentale (ENSL) & M1 & Algo.\ Parallèles et Programmes Distribués & 32 & TD/TP \tabularnewline
-		& & L3 & Circuits Logiques et Réseaux & 32 & TD/TP \tabularnewline
-		\midrule
-		2020--2021 (Vacataire) & Master Informatique Fondamentale (ENSL) & M1 & Projet & 30 & TP \tabularnewline
-		& & M1 & Stage & 4 & Jury \tabularnewline
-		& & L3 & Architecture, Système et Réseaux & 30 & TD/TP \tabularnewline
-		\bottomrule
-	\end{tabularx}
+    \footnotesize
+    \begin{tabularx}{\linewidth}{p{2cm}lp{3cm}lXll}
+        \toprule
+        Année & Statut & Public & Niv. & Matière & Vol. & Nature \tabularnewline
+        \midrule
+        2023--2024 & ATER & Master ISL (UFC) & M2 & Test Fonctionnel & 15 & TD/TP \tabularnewline
+        & & & M1 & Compilation et Interprétation & 12 & TP \tabularnewline
+        & & & M1 & Réseaux & 12 & TP \tabularnewline
+        & & & L3 & Développement Web Avancé & 24 & TP \tabularnewline
+        & & & L3 & Encadrement Projet & 8 & --- \tabularnewline
+        & & & L1 & Bases de Programmation & 56 & TD/TP \tabularnewline
+        \cmidrule{4-7}
+        & & & L3 & \emph{Encadrement Stage} & 10 & --- \tabularnewline
+        & & & L3 & \emph{Analyse Syntaxique} & 24 & TP \tabularnewline
+        & & & L2 & \emph{Langages du Web} & 22 & TP \tabularnewline
+        & & & L1 & \emph{Analyse et Traitement de Données} & 10 & TP \tabularnewline
+        \midrule
+        2022--2023 & Vac. & Master ISL (UFC) & M1 & Réseaux & 12 & TP \tabularnewline
+        & & & L1 & Bases de Programmation & 52 & TD/TP \tabularnewline
+        \midrule
+        2021--2022 & Vac. & Master IF (ENSL) & M1 & Algo.\ Parallèles et Prog.\ Distribués & 32 & TD/TP \tabularnewline
+        & & & L3 & Circuits Logiques et Réseaux & 32 & TD/TP \tabularnewline
+        \midrule
+        2020--2021 & Vac. & Master IF (ENSL) & M1 & Projet & 30 & TP \tabularnewline
+        & & & M1 & Stage & 4 & Jury \tabularnewline
+        & & & L3 & Architecture, Système et Réseaux & 30 & TD/TP \tabularnewline
+        \bottomrule
+    \end{tabularx}
 \end{center}
 
 \section{Activités de recherche}
 
 \subsection{Résumé des travaux}
 
+Les travaux de recherche menés jusqu'à présent ont porté sur l'optimisation et la prédictibilité de
+systèmes de stockage distribués, en particulier les bases de données de type clé/valeur, plus
+couramment appelées \emph{key-value stores}.  
+Durant la thèse, nous avons proposé une nouvelle approche pour l'étude de ces systèmes, basée en
+grande partie sur la théorie de l'ordonnancement.  
+Nous avons poursuivi trois objectifs principaux : (i) le développement de garanties théoriques
+générales sur les métriques de performance classiques, à savoir la latence et le débit, (ii) le
+développement d'outils formels et pratiques pour faciliter l'évaluation de différentes
+caractéristiques du système et (iii) le développement de principes permettant de guider les
+optimisations futures.
+
+Lors de ma première année de doctorat, j'ai pu proposer un modèle formel pour l'étude de problèmes
+d'ordonnancement dans les \emph{key-value stores} persistants.  
+Ceci nous a permis de dériver des résultats théoriques (optimalité et approximation) sur des
+variantes simplifiées, le problème initial étant NP-difficile au sens fort.  
+Nous avons ainsi pu identifier la difficulté principale dans l'ordonnancement de requêtes dans ces
+systèmes, à savoir la contrainte de localité des données : une requête ne peut être exécutée que par
+un sous-ensemble des machines composant le cluster.  
+De plus, en exploitant un résultat de la littérature, nous avons pu montrer comment trouver une
+borne inférieure sur le temps de réponse maximum de n'importe quelle instance du problème difficile,
+ce qui permet en pratique de comparer et d'évaluer des heuristiques d'ordonnancement au travers de
+simulations.  
+Nous avons mis en évidence l'efficacité d'une heuristique simple, consistant à placer chaque requête
+sur la machine qui la terminera au plus tôt.  
+Ces travaux ont fait l'objet d'un rapport de recherche~\cite{benmokhtar2021-rr} et d'une publication
+à la conférence Euro-Par 2021~\cite{benmokhtar2021}, et une version étendue est en cours de
+relecture dans Journal of Scheduling.
+
+Nous avons poursuivi l'exploration du modèle théorique en introduisant des restrictions sur les
+ensembles de machines capables d'exécuter une requête donnée.  
+Dans un \emph{key-value store}, la stratégie de réplication des données n'est pas arbitraire et
+introduit une structure bien particulière dans les ensembles de réplication.  
+Nous avons ainsi cherché à comprendre comment différents schémas de réplication peuvent impacter le
+temps de réponse et le débit du système.  
+En particulier, en considérant la variante \emph{online} du problème (où l'instance est découverte
+au fur et à mesure), nous nous sommes intéressés au ratio de compétitivité du temps de réponse
+maximum, et nous avons dérivé des bornes théoriques fortes en fonction du schéma de réplication
+considéré.  
+Nous avons également conçu une méthode exacte permettant de calculer le débit maximum théoriquement
+atteignable en fonction de la stratégie de réplication et de la distribution des fréquences d'accès
+aux données.  
+Ces travaux ont fait l'objet d'un rapport de recherche~\cite{canon2022-rr} et d'une publication
+à la conférence IPDPS 2022~\cite{canon2022}.
+
+Nous avons ensuite étudié le problème sous un angle plus expérimental, en nous intéressant à
+l'ordonnancement pratique dans Apache Cassandra, un système de \emph{key-value store} largement
+utilisé en production dans l'industrie.  
+Après avoir identifié plusieurs difficultés liées à la conception et à l'évaluation de politiques
+d'ordonnancement dans Apache Cassandra, nous avons proposé Hector, un framework modulaire permettant
+de faciliter l'implémentation et la comparaison d'algorithmes d'ordonnancement dans Apache
+Cassandra.  
+Après avoir vérifié qu'Hector n'apportait pas de surcoût significatif par rapport au système
+initial, ceci nous a permis de proposer de nouvelles stratégies ayant un effet bénéfique sur le
+débit et le temps de réponse du système.  
+En particulier, sous certaines conditions sur la charge de travail, l'exploitation effective du
+cache du système d'exploitation peut améliorer significativement le débit du système.  
+En outre, nous avons montré que le ré-ordonnancement local des requêtes sur chaque machine peut
+améliorer le temps de réponse global lorsque la charge de travail est hétérogène.  
+Ces travaux ont fait l'objet d'une publication à la conférence ICPP 2023~\cite{canon2023b}.
+
 \subsection{Publications scientifiques}
 
-\subsection{Séminaires scientifiques}
+Les auteurs sont listés par ordre alphabétique, conformément aux conventions en vigueur dans les
+communautés liée aux travaux concernés.
+
+\newcommand{\showbib}[1]{%
+    \begin{otherlanguage}{english}
+        \printbibliography[heading=none,keyword={#1}]
+    \end{otherlanguage}}
+
+\subsubsection*{Conférences internationales avec comité de lecture}
+
+\showbib{international proceedings}
+
+\subsubsection*{Rapports de recherche}
+
+\showbib{research report}
+
+% \subsubsection*{Articles soumis (revue en cours)}
+
+% \showbib{under review}
+
+\subsection{Communications scientifiques}
+
+\subsubsection*{Conférences internationales avec comité de lecture}
+
+\begin{itemize}
+    \item \foreignlanguage{english}{Hector: A Framework to Design and Evaluate Scheduling Strategies
+    in Persistent Key-Value Stores}, 9 août 2023, ICPP 2023, Salt Lake City, Utah (en).
+    \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+    Processing Sets}, 1 juin 2022, IPDPS 2022, visio-conférence (en).
+    \item \foreignlanguage{english}{Taming Tail-Latency in Key-Value Stores: a Scheduling
+    Perspective}, 2 septembre 2021, Euro-Par 2021, visio-conférence (en).
+\end{itemize}
+
+\subsubsection*{Conférences nationales avec comité de lecture}
+
+\begin{itemize}
+  \item \foreignlanguage{english}{Hector: A Framework to Design and Evaluate Scheduling Strategies
+  in Persistent Key-Value Stores}, 5 juillet 2023, COMPAS 2023, Annecy, France (fr).
+\end{itemize}
+
+\subsubsection*{Séminaires scientifiques}
+
+\begin{itemize}
+  \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+  Processing Sets}, 25 novembre 2022, Groupe de Travail GOThA, Metz, France (fr).
+  \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+  Processing Sets}, 30 août 2022, Journée des doctorants, Mésandans, France (fr).
+  \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+  Processing Sets}, 17 mai 2022, Scheduling Workshop, Aussois, France (en).
+  \item \foreignlanguage{english}{A Scheduling Framework for Distributed Key-Value Stores and its
+  Application to Tail Latency Minimization}, 13 avril 2022, Groupe de Travail SCALE, Besançon,
+  France (fr).
+  \item \foreignlanguage{english}{Bounding the Flow Time in Online Scheduling under Structured
+  Processing Sets}, 3 décembre 2021, Groupe de Travail SCALE, Lyon, France (fr).
+\end{itemize}
 
 \subsection{Diffusions logicielles}
 
@@ -225,31 +365,6 @@ enseignements (réunions pédagogiques, jurys, surveillance, etc.).
 
 %   \cvitem{Linguistiques}{Anglais, Français.}
 % \end{cvitems}
-
-% \section*{Enseignement}
-
-% Les Travaux Dirigés (TD) et Travaux Pratiques (TP) se font en parallèle des activités de recherche.  
-% Pour chaque module, les effectifs des groupes se situent entre 10 et 15 étudiants.  
-% Le public concerné est issu de l'École Normale Supérieure de Lyon (ENSL) et de l'Université de
-% Franche-Comté (UFC).
-
-% \begin{center}
-%   \footnotesize
-%   \begin{tabularx}{\textwidth}{rXllll}
-%     \toprule
-%     Année & Module & Public & Niveau & Type & Durée (hTD) \tabularnewline
-%     \midrule
-%     2022--2023 & Bases de la programmation & UFC & L1 & TD/TP & 52 \tabularnewline
-%     & Réseaux & UFC & M1 & TP & 12 \tabularnewline
-%     \midrule
-%     2021--2022 & Circuits Logiques \& Réseaux & ENSL & L3 & TD/TP & 32 \tabularnewline
-%     & Algorithmes Parallèles et Prog.\ Distribués & ENSL & M1 & TD/TP & 32 \tabularnewline
-%     \midrule
-%     2020--2021 & Architecture, Système et Réseaux & ENSL & L3 & TD/TP & 32 \tabularnewline
-%     & Projet Intégré & ENSL & M1 & Projet & 32 \tabularnewline
-%     \bottomrule
-%   \end{tabularx}
-% \end{center}
 
 % \section*{Publications}
 
