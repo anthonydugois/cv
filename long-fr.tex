@@ -100,7 +100,7 @@
     Adresse     & UFR Sciences et techniques \newline
                   Bâtiment Métrologie, Bureau 416 C \newline
                   16 route de Gray \newline
-                  25000 Besançon \tabularnewline
+                  25\,000 Besançon \tabularnewline
     Téléphone   & \myphone \tabularnewline
     Courriel    & \mymail \tabularnewline
     Site web    & \mywebsite \tabularnewline
@@ -114,7 +114,8 @@
 
     \renewcommand{\arraystretch}{1.4}
     \begin{tabularx}{\linewidth}{@{}lX@{}}
-        Titre         & Ordonnancement dans les systèmes de stockage distribués \tabularnewline
+        Titre         & \emph{\foreignlanguage{english}{Scheduling in Distributed Storage Systems}} \newline
+                        Ordonnancement dans les systèmes de stockage distribués \tabularnewline
         Spécialité    & Informatique \tabularnewline
         Laboratoire   & Laboratoire de l'Informatique du Parallélisme (LIP) \tabularnewline
         Établissement & École Normale Supérieure de Lyon \tabularnewline
@@ -234,70 +235,71 @@ Les volumes horaires sont donnés en heqTD.
 
 \subsection{Résumé des travaux}
 
-Les travaux de recherche menés jusqu'à présent ont porté sur l'optimisation et la prédictibilité de
-systèmes de stockage distribués, en particulier les bases de données de type clé/valeur, plus
-couramment appelées \emph{key-value stores}.  
+Jusqu'à présent, mes travaux de recherche ont porté sur \textbf{l'optimisation et la prédictibilité
+des systèmes de stockage distribués}, en particulier les bases de données de type clé/valeur, plus
+communément appelées \emph{key-value stores}.  
 Durant la thèse, nous avons proposé une nouvelle approche pour l'étude de ces systèmes, basée en
-grande partie sur la théorie de l'ordonnancement.  
+grande partie sur la \textbf{théorie de l'ordonnancement}.  
 Nous avons poursuivi trois objectifs principaux : (i) le développement de garanties théoriques
 générales sur les métriques de performance classiques, à savoir la latence et le débit, (ii) le
 développement d'outils formels et pratiques pour faciliter l'évaluation de différentes
 caractéristiques du système et (iii) le développement de principes permettant de guider les
 optimisations futures.
 
-Lors de ma première année de doctorat, j'ai pu proposer un modèle formel pour l'étude de problèmes
-d'ordonnancement dans les \emph{key-value stores} persistants.  
+Lors de ma première année de doctorat, nous avons proposé un modèle formel pour l'étude de problèmes
+d'ordonnancement dans les \emph{key-value stores} persistants, en particulier le problème de
+minimisation du temps de réponse maximum (\emph{max-flow}) d'un flux de requêtes.  
 Ceci nous a permis de dériver des résultats théoriques (optimalité et approximation) sur des
-variantes simplifiées, le problème initial étant NP-difficile au sens fort.  
-Nous avons ainsi pu identifier la difficulté principale dans l'ordonnancement de requêtes dans ces
-systèmes, à savoir la contrainte de localité des données : une requête ne peut être exécutée que par
-un sous-ensemble des machines composant le cluster.  
-De plus, en exploitant un résultat de la littérature, nous avons pu montrer comment trouver une
-borne inférieure sur le temps de réponse maximum de n'importe quelle instance du problème difficile,
-ce qui permet en pratique de comparer et d'évaluer des heuristiques d'ordonnancement au travers de
-simulations.  
-Nous avons mis en évidence l'efficacité d'une heuristique simple, consistant à placer chaque requête
-sur la machine qui la terminera au plus tôt.  
+variantes simplifiées, le problème initial étant \(\mathbf{NP}\)-difficile au sens fort.  
+Nous avons identifié la difficulté principale du problème de minimisation, à savoir la contrainte de
+localité des données, i.e., une requête ne peut être exécutée que par le sous-ensemble de serveurs
+stockant la clé recherchée.  
+De plus, en exploitant un résultat de la littérature, nous avons montré comment trouver une borne
+inférieure sur le temps de réponse maximum de n'importe quelle instance du problème, ce qui permet
+en pratique de comparer et d'évaluer des heuristiques d'ordonnancement au travers de simulations.  
+Nous avons ainsi mis en évidence l'efficacité d'une heuristique simple, consistant à placer chaque
+requête sur la machine qui la terminera au plus tôt.  
 Ces travaux ont fait l'objet d'un rapport de recherche~\cite{benmokhtar2021-rr} et d'une publication
-à la conférence Euro-Par 2021~\cite{benmokhtar2021}, et une version étendue est en cours de
-relecture dans Journal of Scheduling.
+à la conférence Euro-Par 2021~\cite{benmokhtar2021}.  
+Une version étendue est en cours de relecture dans \emph{Journal of Scheduling}.
 
 Nous avons poursuivi l'exploration du modèle théorique en introduisant des restrictions sur les
 ensembles de machines capables d'exécuter une requête donnée.  
 Dans un \emph{key-value store}, la stratégie de réplication des données n'est pas arbitraire et
-introduit une structure bien particulière dans les ensembles de réplication.  
-Nous avons ainsi cherché à comprendre comment différents schémas de réplication peuvent impacter le
-temps de réponse et le débit du système.  
+définit une structure bien particulière au sein des ensembles de réplication.  
+Nous avons cherché à comprendre comment différents schémas de réplication peuvent impacter le temps
+de réponse et le débit du système.  
 En particulier, en considérant la variante \emph{online} du problème (où l'instance est découverte
-au fur et à mesure), nous nous sommes intéressés au ratio de compétitivité du temps de réponse
-maximum, et nous avons dérivé des bornes théoriques fortes en fonction du schéma de réplication
-considéré.  
+au fur et à mesure), nous nous sommes intéressés au ratio de compétitivité sur le temps de réponse
+maximum, i.e., la différence relative entre un algorithme d'ordonnancement \emph{online} et une
+stratégie optimale \emph{offline}, et nous avons dérivé des bornes théoriques fortes en fonction du
+schéma de réplication considéré.  
 Nous avons également conçu une méthode exacte permettant de calculer le débit maximum théoriquement
 atteignable en fonction de la stratégie de réplication et de la distribution des fréquences d'accès
 aux données.  
-Ces travaux ont fait l'objet d'un rapport de recherche~\cite{canon2022-rr} et d'une publication
-à la conférence IPDPS 2022~\cite{canon2022}.
+Ces travaux ont fait l'objet d'un rapport de recherche~\cite{canon2022-rr} et d'une publication à la
+conférence IPDPS 2022~\cite{canon2022}.
 
-Nous avons ensuite étudié le problème sous un angle plus expérimental, en nous intéressant à
+Par le biais d'une collaboration avec le Professeur Etienne Rivière à l'UCLouvain en Belgique, nous
+avons ensuite étudié le problème sous un angle plus expérimental en nous intéressant à
 l'ordonnancement pratique dans Apache Cassandra, un système de \emph{key-value store} largement
 utilisé en production dans l'industrie.  
-Après avoir identifié plusieurs difficultés liées à la conception et à l'évaluation de politiques
-d'ordonnancement dans Apache Cassandra, nous avons proposé Hector, un framework modulaire permettant
-de faciliter l'implémentation et la comparaison d'algorithmes d'ordonnancement dans Apache
+Nous avons notamment proposé Hector, un framework modulaire permettant de résoudre plusieurs
+difficultés liées à la conception et à l'évaluation de politiques d'ordonnancement dans Apache
 Cassandra.  
 Après avoir vérifié qu'Hector n'apportait pas de surcoût significatif par rapport au système
 initial, ceci nous a permis de proposer de nouvelles stratégies ayant un effet bénéfique sur le
 débit et le temps de réponse du système.  
-En particulier, sous certaines conditions sur la charge de travail, l'exploitation effective du
-cache du système d'exploitation peut améliorer significativement le débit du système.  
-En outre, nous avons montré que le ré-ordonnancement local des requêtes sur chaque machine peut
-améliorer le temps de réponse global lorsque la charge de travail est hétérogène.  
+En particulier, l'exploitation effective du cache du système d'exploitation peut améliorer
+significativement le débit du système.  
+Nous avons aussi montré que le ré-ordonnancement local des requêtes sur chaque machine peut
+améliorer le temps de réponse global en cas d'hétérogénéité de la charge de travail.  
 Ces travaux ont fait l'objet d'une publication à la conférence ICPP 2023~\cite{canon2023b}.
 
 \subsection{Publications scientifiques}
 
-Les auteurs sont listés par ordre alphabétique, conformément aux conventions en vigueur dans les
-communautés liée aux travaux concernés.
+Les auteurs et autrices sont listé(e)s par ordre alphabétique, conformément aux conventions en
+vigueur dans les communautés liées aux travaux concernés.
 
 \newcommand{\showbib}[1]{%
     \begin{otherlanguage}{english}
@@ -354,7 +356,34 @@ communautés liée aux travaux concernés.
 
 \subsection{Diffusions logicielles}
 
-\section{Responsabilités collectives}
+\begin{itemize}
+    \item \textbf{Simulation de \emph{key-value store}}: implémentation d'un simulateur à évènements
+    discrets et évaluation de politiques d'ordonnancement
+    (\url{https://doi.org/10.6084/m9.figshare.21750605.v1}, licence libre). Ce logiciel a permis
+    d'obtenir plusieurs résultats dans \cite{benmokhtar2021}. J'en suis le
+    principal développeur.
+    \item \textbf{Estimateur de débit théorique}: implémentation de la méthode exacte décrite dans
+    \cite{canon2022} permettant de calculer le débit maximum théoriquement atteignable par un
+    système de \emph{key-value store} en fonction de la stratégie de réplication et de la fréquence
+    d'accès aux données (\url{https://doi.org/10.6084/m9.figshare.19123139.v1}, licence libre). J'en
+    suis le principal développeur.
+    \item \textbf{Hector}: framework modulaire permettant de faciliter l'implémentation et
+    l'évaluation de nouvelles politiques d'ordonnancement dans Apache Cassandra
+    (\url{https://github.com/anthonydugois/apache-cassandra-se}, licence libre). Les benchmarks
+    permettant d'obtenir les résultats décrits dans \cite{canon2023b} sont également disponibles
+    (\url{https://github.com/anthonydugois/hector-benchmarking}, licence libre). J'en suis le
+    principal développeur.
+\end{itemize}
+
+\subsection{Responsabilités collectives}
+
+\begin{itemize}
+    \item Relecture d'article pour la conférence internationale
+    \emph{\foreignlanguage{english}{Euro-Par 2021: Parallel Processing. 27th International European
+    Conference on Parallel and Distributed Computing}}.
+    \item Session chair à la conférence nationale COMPAS 2023 (session Parallélisme III):
+    \url{https://2023.compas-conference.fr/programme/}.
+\end{itemize}
 
 % \section*{Compétences}
 
