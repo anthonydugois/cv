@@ -1,7 +1,7 @@
 LATEX = latexmk
 BUILD = build
 
-main: long-fr.pdf
+main: long-fr.pdf short-fr.pdf
 
 %.pdf: %.tex main.bib
 	mkdir -p $(BUILD)
